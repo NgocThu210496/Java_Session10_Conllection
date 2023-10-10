@@ -181,6 +181,6 @@ public class Product implements IShop {
     public void displayData() {
         System.out.printf("Mã sản phẩm: %s - Tên sản phẩm: %s - Mã danh mục của sản phẩm: %d\n", this.productId, this.productName, this.catalogId);
         System.out.printf("Giá nhập sản phẩm: %f - Giá bán sản phẩm: %f - Trạng thái sản phẩm: %s\n", this.ImportPrice, this.ExportPrice, this.productStatus ? "Hoạt động" : "Không hoạt động");
-        System.out.println("------------------------------------------------");
+        System.out.println("----------------------------------------*---------------------------------------");
     }
 }

@@ -11,12 +11,13 @@ public class CategoriesManagement {
     public static void showCategoriesMenu(Scanner scanner, List<Categories> listCategories, List<Product> listProducts, int index) {
         boolean exitMenuCatalog = true; //chỉ  thoát khỏi menuCategories thôi
         do {
-            System.out.println("**************CATEGORIES MENU**************");
-            System.out.println("1. Danh sách danh mục");
-            System.out.println("2. Thêm mới danh mục");
-            System.out.println("3. Cập nhật thông tin danh mục (Cập nhật theo mã)");
-            System.out.println("4. Xóa danh mục (Chỉ cho phép xóa danh mục chưa có sản phẩm)");
-            System.out.println("5. Thoát");
+            System.out.println("|************************CATEGORIES MENU*****************************|");
+            System.out.println("| 1. Danh sách danh mục                                              |");
+            System.out.println("| 2. Thêm mới danh mục                                               |");
+            System.out.println("| 3. Cập nhật thông tin danh mục (Cập nhật theo mã)                  |");
+            System.out.println("| 4. Xóa danh mục (Chỉ cho phép xóa danh mục chưa có sản phẩm)       |");
+            System.out.println("| 5. Thoát                                                           |");
+            System.out.println("|********************************************************************|");
 
             System.out.println("Nhập lựa chọn của bạn: ");
             int choice = Integer.parseInt(scanner.next());

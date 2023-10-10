@@ -26,10 +26,11 @@ public class Main {
     public static void main(String[] args) {
 
         do {
-            System.out.println("********************SHOP MENU*********************");
-            System.out.println("1. Quản lý danh mục sản phẩm");
-            System.out.println("2. Quản lý sản phẩm");
-            System.out.println("3. Thoát");
+            System.out.println("|*******************SHOP MENU*********************|");
+            System.out.println("|       1. Quản lý danh mục sản phẩm              |");
+            System.out.println("|       2. Quản lý sản phẩm                       |");
+            System.out.println("|       3. Thoát                                  |");
+            System.out.println("|*************************************************|");
 
             System.out.println("Nhập lựa chọn của bạn: ");
             int choice = Integer.parseInt(scanner.next());

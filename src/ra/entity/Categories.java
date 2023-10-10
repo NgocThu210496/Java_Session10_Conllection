@@ -103,7 +103,7 @@ public class Categories implements IShop {
     public void displayData() {
         System.out.printf("Mã danh mục: %d - Tên danh mục: %s\n", this.catalogId, this.catalogName);
         System.out.printf("Mô tả: %s - Trạng thái: %s\n", this.descriptions, this.isCatalogStatus() ? "Hoạt động" : "Không hoạt động");
-        System.out.println("-----------------------------");
+        System.out.println("-----------------------------*-------------------------------");
     }
 
 }

@@ -11,15 +11,16 @@ public class ProductManagement {
     public static void showProductMenu(Scanner scanner, List<Categories> listCategories, List<Product> listProducts, int index) {
         boolean exitMenuProduct = true; //chỉ  thoát khỏi menuProduct thôi
         do {
-            System.out.println("**************PRODUCT MENU**************");
-            System.out.println("1. Danh sách sản phẩm");
-            System.out.println("2. Thêm mới sản phẩm (Khi thêm mới cho phép chọn danh mục)");
-            System.out.println("3. Cập nhật thông tin sản phẩm (Cập nhật theo mã)");
-            System.out.println("4. Xóa sản phẩm");
-            System.out.println("5. Sắp xếp sản phẩm theo giá bán tăng dần");
-            System.out.println("6. Sắp xếp sản phẩm theo giá nhập giảm dần");
-            System.out.println("7. Tìm kiếm sản phẩm theo tên sản phẩm");
-            System.out.println("8. Thoát");
+            System.out.println("|**************************PRODUCT MENU****************************|");
+            System.out.println("| 1. Danh sách sản phẩm                                            |");
+            System.out.println("| 2. Thêm mới sản phẩm (Khi thêm mới cho phép chọn danh mục)       |");
+            System.out.println("| 3. Cập nhật thông tin sản phẩm (Cập nhật theo mã)                |");
+            System.out.println("| 4. Xóa sản phẩm                                                  |");
+            System.out.println("| 5. Sắp xếp sản phẩm theo giá bán tăng dần                        |");
+            System.out.println("| 6. Sắp xếp sản phẩm theo giá nhập giảm dần                       |");
+            System.out.println("| 7. Tìm kiếm sản phẩm theo tên sản phẩm                           |");
+            System.out.println("| 8. Thoát                                                         |");
+            System.out.println("|******************************************************************|");
 
             System.out.println("Nhập lựa chọn của bạn: ");
             int choice = Integer.parseInt(scanner.next());
