@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CategoriesManagement {
-    public static void showCategoriesMenu(Scanner scanner, List<Categories> listCategories, List<Product> listProducts, int index){
+    public static void showCategoriesMenu(Scanner scanner, List<Categories> listCategories, List<Product> listProducts, int index) {
         boolean exitMenuCatalog = true; //chỉ  thoát khỏi menuCategories thôi
         do {
             System.out.println("**************CATEGORIES MENU**************");
@@ -19,31 +19,31 @@ public class CategoriesManagement {
             System.out.println("5. Thoát");
 
             System.out.println("Nhập lựa chọn của bạn: ");
-            int choice=Integer.parseInt(scanner.next());
-            switch (choice){
+            int choice = Integer.parseInt(scanner.next());
+            switch (choice) {
                 case 1:
                     System.out.println("1. Danh sách danh mục");
                     CategoriesBusiness.displayListCategories(listCategories);
                     break;
                 case 2:
                     System.out.println("2. Thêm mới danh mục");
-                    CategoriesBusiness.inputListCategories(scanner, listCategories,listProducts);
+                    CategoriesBusiness.inputListCategories(scanner, listCategories, listProducts);
                     break;
                 case 3:
                     System.out.println("3. Cập nhật thông tin danh mục (Cập nhật theo mã)");
-                    CategoriesBusiness.updateCategories(scanner, listCategories,listProducts,index);
+                    CategoriesBusiness.updateCategories(scanner, listCategories, listProducts, index);
                     break;
                 case 4:
                     System.out.println("4. Xóa danh mục (Chỉ cho phép xóa danh mục chưa có sản phẩm)");
-                    CategoriesBusiness.deleteCatalog(scanner, listCategories,listProducts);
+                    CategoriesBusiness.deleteCatalog(scanner, listCategories, listProducts);
                     break;
                 case 5:
-                    exitMenuCatalog=false;
+                    exitMenuCatalog = false;
                     break;
                 default:
                     System.out.println("Lựa chọn không hợp lệ. Vui lòng chọn lại!");
 
             }
-        }while (exitMenuCatalog);
+        } while (exitMenuCatalog);
     }
 }

@@ -66,6 +66,7 @@ public class CategoriesBusiness {
             System.err.println("Mã danh mục không tồn tại.");
         }
     }
+
     public static void deleteCatalog(Scanner scanner, List<Categories> listCategories, List<Product> listProducts) {
         System.out.println("Nhập vào mã danh mục cần xóa:"); //Xóa danh mục (Chỉ cho phép xóa danh mục chưa có sản phẩm)
         int deleteId = Integer.parseInt(scanner.next());

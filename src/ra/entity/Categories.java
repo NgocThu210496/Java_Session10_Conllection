@@ -3,16 +3,16 @@ package ra.entity;
 import java.util.List;
 import java.util.Scanner;
 
-public class Categories implements IShop{
+public class Categories implements IShop {
 
-    private static int newCatalogId=4;
+    private static int newCatalogId = 4;
     private int catalogId;
     private String catalogName;
     private String descriptions; //mô tả danh mục
     private boolean catalogStatus; //true – hoạt động, false – không hoạt động
 
     public Categories() {
-       this.catalogId = newCatalogId++;
+        this.catalogId = newCatalogId++;
     }
 
     public Categories(int catalogId, String catalogName, String descriptions, boolean catalogStatus) {
@@ -55,7 +55,7 @@ public class Categories implements IShop{
     }
 
     @Override
-    public void inputData(Scanner scanner, List<Categories> listCategories,List<Product> listProducts, int index) {
+    public void inputData(Scanner scanner, List<Categories> listCategories, List<Product> listProducts, int index) {
         // Tiêu diệt ký tự newline sau khi đọc số nguyên
         scanner.nextLine();
         //2. Nhập tên danh mục
@@ -101,8 +101,8 @@ public class Categories implements IShop{
 
     @Override
     public void displayData() {
-        System.out.printf("Mã danh mục: %d - Tên danh mục: %s\n",this.catalogId, this.catalogName);
-        System.out.printf("Mô tả: %s - Trạng thái: %s\n",this.descriptions, this.isCatalogStatus() ? "Hoạt động" : "Không hoạt động");
+        System.out.printf("Mã danh mục: %d - Tên danh mục: %s\n", this.catalogId, this.catalogName);
+        System.out.printf("Mô tả: %s - Trạng thái: %s\n", this.descriptions, this.isCatalogStatus() ? "Hoạt động" : "Không hoạt động");
         System.out.println("-----------------------------");
     }
 
