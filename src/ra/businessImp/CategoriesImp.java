@@ -1,13 +1,13 @@
-package ra.business;
+package ra.businessImp;
 
+import ra.business.IShop;
 import ra.entity.Categories;
-import ra.entity.IShop;
 import ra.entity.Product;
 
 import java.util.List;
 import java.util.Scanner;
 
-public class CategoriesBusiness {
+public class CategoriesImp {
     public static void displayListCategories(List<Categories> listCategories) {
         for (IShop e : listCategories) {
             e.displayData();
@@ -20,12 +20,12 @@ public class CategoriesBusiness {
         for (int i = 0; i < n; i++) {
             //khoi tao doi tuong
             Categories categories = new Categories();
-            categories.inputData(scanner, listCategories, listProducts, i);
+            categories.inputData(scanner, listCategories, listProducts);
             listCategories.add(categories);
         }
     }
 
-    public static void updateCategories(Scanner scanner, List<Categories> listCategories, List<Product> listProducts, int index) {
+    public static void updateCategories(Scanner scanner, List<Categories> listCategories, List<Product> listProducts) {
         System.out.println("Nhập vào mã danh mục cần cập nhật: ");
         scanner.nextLine();
         int catalogIdUpdate = Integer.parseInt(scanner.nextLine());
@@ -72,12 +72,11 @@ public class CategoriesBusiness {
         int deleteId = Integer.parseInt(scanner.next());
         for (int i = 0; i < listProducts.size(); i++) {
             if (listProducts.get(i).getCategoriId() == deleteId) {
-                System.out.println("Danh mục này đã có sản phẩm, không được phép xoá");
+                System.err.println("Danh mục này đã có sản phẩm, không được phép xoá");
                 return;
             }
         }
         boolean check = false;
-        System.out.println("Nhập mã id cần xoá: ");
         for (int i = 0; i < listCategories.size(); i++) {
             if (listCategories.get(i).getCatalogId() == deleteId) {
                 listCategories.remove(i);

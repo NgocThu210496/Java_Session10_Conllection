@@ -21,9 +21,10 @@ public class Main {
         listProducts.add(new Product("Sp02","San pham 2",2, 2500,2400, false ));
         listProducts.add(new Product("Sp03","San pham 3",3, 1000,1400, true ));
     }
-    static Scanner scanner = new Scanner(System.in);
+
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
         do {
             System.out.println("|*******************SHOP MENU*********************|");
@@ -37,11 +38,11 @@ public class Main {
             switch (choice){
                 case 1:
                     System.out.println("1. Quản lý danh mục sản phẩm");
-                    CategoriesManagement.showCategoriesMenu(scanner,listCategories,listProducts,3);
+                    CategoriesManagement.showCategoriesMenu(scanner,listCategories,listProducts);
                     break;
                 case 2:
                     System.out.println("2. Quản lý sản phẩm");
-                    ProductManagement.showProductMenu(scanner,listCategories,listProducts,3);
+                    ProductManagement.showProductMenu(scanner,listCategories,listProducts);
                     break;
                 case 3:
                     System.exit(0);

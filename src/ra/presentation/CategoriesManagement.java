@@ -1,6 +1,6 @@
 package ra.presentation;
 
-import ra.business.CategoriesBusiness;
+import ra.businessImp.CategoriesImp;
 import ra.entity.Categories;
 import ra.entity.Product;
 
@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CategoriesManagement {
-    public static void showCategoriesMenu(Scanner scanner, List<Categories> listCategories, List<Product> listProducts, int index) {
+    public static void showCategoriesMenu(Scanner scanner, List<Categories> listCategories, List<Product> listProducts) {
         boolean exitMenuCatalog = true; //chỉ  thoát khỏi menuCategories thôi
         do {
             System.out.println("|************************CATEGORIES MENU*****************************|");
@@ -24,19 +24,19 @@ public class CategoriesManagement {
             switch (choice) {
                 case 1:
                     System.out.println("1. Danh sách danh mục");
-                    CategoriesBusiness.displayListCategories(listCategories);
+                    CategoriesImp.displayListCategories(listCategories);
                     break;
                 case 2:
                     System.out.println("2. Thêm mới danh mục");
-                    CategoriesBusiness.inputListCategories(scanner, listCategories, listProducts);
+                    CategoriesImp.inputListCategories(scanner, listCategories, listProducts);
                     break;
                 case 3:
                     System.out.println("3. Cập nhật thông tin danh mục (Cập nhật theo mã)");
-                    CategoriesBusiness.updateCategories(scanner, listCategories, listProducts, index);
+                    CategoriesImp.updateCategories(scanner, listCategories, listProducts);
                     break;
                 case 4:
                     System.out.println("4. Xóa danh mục (Chỉ cho phép xóa danh mục chưa có sản phẩm)");
-                    CategoriesBusiness.deleteCatalog(scanner, listCategories, listProducts);
+                    CategoriesImp.deleteCatalog(scanner, listCategories, listProducts);
                     break;
                 case 5:
                     exitMenuCatalog = false;

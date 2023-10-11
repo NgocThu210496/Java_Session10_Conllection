@@ -1,5 +1,7 @@
 package ra.entity;
 
+import ra.business.IShop;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -54,8 +56,8 @@ public class Categories implements IShop {
         this.catalogStatus = catalogStatus;
     }
 
-    @Override
-    public void inputData(Scanner scanner, List<Categories> listCategories, List<Product> listProducts, int index) {
+    //@Override
+    public void inputData(Scanner scanner, List<Categories> listCategories, List<Product> listProducts) {
         // Tiêu diệt ký tự newline sau khi đọc số nguyên
         scanner.nextLine();
         //2. Nhập tên danh mục
@@ -67,7 +69,7 @@ public class Categories implements IShop {
             if (this.catalogName.length() < 50) {
                 //Không trùng lặp
                 boolean isExist = false;//Không trùng
-                for (int i = 0; i < index; i++) {
+                for (int i = 0; i < listCategories.size(); i++) {
                     if (listCategories.get(i).getCatalogName().toLowerCase().equals(this.catalogName.toLowerCase())) {
                         isExist = true;//Bị trùng lặp - đã tồn tại rồi
                         break;

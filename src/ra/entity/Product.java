@@ -1,12 +1,14 @@
 package ra.entity;
 
+import ra.business.IShop;
+
 import java.util.List;
 import java.util.Scanner;
 
 public class Product implements IShop {
     private String productId;
     private String productName;
-    private static int catalogId;
+    private int catalogId;
     private float ImportPrice; // Giá nhập sản phẩm, có giá trị lớn hơn 0
     private float ExportPrice; //Giá bán sản phẩm tính theo công thức
     private boolean productStatus; //True – Hoạt động, false – Không hoạt động)
@@ -76,8 +78,8 @@ public class Product implements IShop {
         this.ExportPrice = ImportPrice * RATE; //Giá bán sản phẩm tính theo công thức
     }
 
-    @Override
-    public void inputData(Scanner scanner, List<Categories> listCategories, List<Product> listProducts, int index) {
+    // @Override
+    public void inputData(Scanner scanner, List<Categories> listCategories, List<Product> listProducts) {
         System.out.println("Nhập thông tin của sản phẩm");
         /*gồm 4 ký tự bắt đầu là một trong 3 ký tự ,không được trùng lặp*/
         System.out.println("Nhập vào mã sản phẩm: ");
@@ -103,9 +105,7 @@ public class Product implements IShop {
                     break;
                 }
 
-            } else
-                System.err.println("Độ dài phải đủ 4 ký tự, mời nhập lại!");
-
+            }
         } while (true);
 
         System.out.println("Nhập tên sản phẩm: ");
@@ -128,7 +128,7 @@ public class Product implements IShop {
         } while (true);
 
         //Mã danh mục của sản phẩm
-        listCategoriIdDisplay(scanner, listCategories, listProducts, index);
+        listCategoriIdDisplay(scanner, listCategories, listProducts);
 
         System.out.println("Nhập Giá sản phẩm: "); //có giá trị lớn hơn 0
         do {
@@ -148,33 +148,47 @@ public class Product implements IShop {
         this.productStatus = Boolean.parseBoolean(scanner.next());
     }
 
-    public static void listCategoriIdDisplay(Scanner scanner, List<Categories> listCategories, List<Product> listProducts, int index) {
-        System.out.println("Mã danh mục mà sản phẩm thuộc về");
-        System.out.println("Chọn danh mục của sản phẩm ");
+    public void listCategoriIdDisplay(Scanner scanner, List<Categories> listCategories, List<Product> listProducts) {
         //hiển thị ra các danh mục
-        for (int i = 0; i < listCategories.size(); i++) {
-            System.out.println(i + 1 + "." + listCategories.get(i).getCatalogName());
-        }
-        System.out.println("Lựa chọn của bạn");
+        System.out.println("Chọn danh mục của sản phẩm ");
         do {
-            boolean check = true;
-            //choice: chỉ số phần tử catalog đc chọn
-            int choice = Integer.parseInt(scanner.nextLine());
             for (int i = 0; i < listCategories.size(); i++) {
-                check = true;
-                if (choice == listCategories.get(i).getCatalogId()) { // dung thi vao day
-                    catalogId = choice;
-                    break;
-                } else {
-                    check = false;
-                }
+                System.out.println(i + 1 + "." + listCategories.get(i).getCatalogName());
             }
-            if (!check) {
-                System.out.println("Mã IdCategories sai, vui lòng nhập lại!");
+            System.out.println("Lựa chọn của bạn");
+            int choice = Integer.parseInt(scanner.nextLine());
+            if (choice < 1 || choice > listCategories.size()) {
+                System.err.println("Không tồn tại mã danh mục vui lòng nhập lại!");
+            } else {
+                this.catalogId = listCategories.get(choice - 1).getCatalogId();
+                break;
             }
-
-            break;
         } while (true);
+
+        //hiển thị ra các danh mục
+//        for (int i = 0; i < listCategories.size(); i++) {
+//            System.out.println(i + 1 + "." + listCategories.get(i).getCatalogName());
+//        }
+//        System.out.println("Lựa chọn của bạn");
+//        do {
+//            boolean check = true;
+//            //choice: chỉ số phần tử catalog đc chọn
+//            int choice = Integer.parseInt(scanner.nextLine());
+//            for (int i = 0; i < listCategories.size(); i++) {
+//                check = true;
+//                if (choice == listCategories.get(i).getCatalogId()) { // dung thi vao day
+//                    catalogId = choice;
+//                    break;
+//                } else {
+//                    check = false;
+//                }
+//            }
+//            if (!check) {
+//                System.out.println("Mã IdCategories sai, vui lòng nhập lại!");
+//            }
+//
+//            break;
+//        } while (true);
     }
 
     @Override

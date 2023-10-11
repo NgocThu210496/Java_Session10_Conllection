@@ -1,7 +1,7 @@
-package ra.business;
+package ra.businessImp;
 
+import ra.business.IShop;
 import ra.entity.Categories;
-import ra.entity.IShop;
 import ra.entity.Product;
 
 import java.util.Collections;
@@ -9,7 +9,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
-public class ProductBusiness {
+public class ProductImp {
     public static void displayListProduct(Scanner scanner, List<Categories> listCategories, List<Product> listProducts) {
         for (IShop e : listProducts) {
             e.displayData();
@@ -22,12 +22,12 @@ public class ProductBusiness {
         for (int i = 0; i < n; i++) {
             //khoi tao doi tuong
             Product products = new Product();
-            products.inputData(scanner, listCategories, listProducts, i);
+            products.inputData(scanner, listCategories, listProducts);
             listProducts.add(products);
         }
     }
 
-    public static void updateProduct(Scanner scanner, List<Categories> listCategories, List<Product> listProducts, int index) {
+    public static void updateProduct(Scanner scanner, List<Categories> listCategories, List<Product> listProducts) {
         System.out.println("Nhập vào mã sản phẩm cần cập nhật: ");
         scanner.nextLine();
         String productIdUpdate = scanner.nextLine();
@@ -91,7 +91,7 @@ public class ProductBusiness {
         }
     }
 
-    public static void deleteProduct(Scanner scanner, List<Categories> listCategories, List<Product> listProducts, int index) {
+    public static void deleteProduct(Scanner scanner, List<Categories> listCategories, List<Product> listProducts) {
         boolean check = false;
         System.out.println("Nhập vào mã Id muốn xoá sản phẩm: ");
         scanner.nextLine();
